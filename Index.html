@@ -1,72 +1,72 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="app">
 
-    <head>
-        <title>Pokedex</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-        <link href="css/style.css" rel="stylesheet">
-    </head>
-    
-    <body ng-controller="PokedexController as pokedexCtrl">
+<head>
+    <title>Pokedex</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link href="css/style.css" rel="stylesheet">
+</head>
 
-        <div class="container">
+<body ng-controller="PokedexController as pokedexCtrl">
 
-            <div class="jumbotron jumbotron-fluid text-center">
-                <img src="pokedex.png">
-                <img src="Gotta_catch_them_all.png">
-            </div>
+    <div class="container">
 
-            <div class="row">
+        <div class="jumbotron jumbotron-fluid text-center">
+            <img src="img/pokedex.png">
+            <img src="img/Gotta_catch_them_all.png">
+        </div>
 
-                <div class="col-md-6 text-center"  id="pokemon-balls">
-                    <div class="col-md-6 text-center" ng-repeat="pokemon in pokedexCtrl.pokemon">
-                        <div class="card" style="width: 20rem;">
-                            <div class="card-block">
-                                <h4 class="card-title">{{pokemon.name | uppercase}}</h4>
-                                <img class="card-img-top" src="PokeBall.png" alt="Pokeball">
-                                <a href="#" class="btn btn-primary" ng-click="pokedexCtrl.getPokemonInfo($index+1)">Open Pokeball</a>
-                            </div>
+        <div class="row">
+
+            <div class="col-md-6 text-center" id="pokemon-balls">
+                <div class="col-md-6 text-center" ng-repeat="pokemon in pokedexCtrl.pokemon">
+                    <div class="card" style="width: 20rem;">
+                        <div class="card-block">
+                            <h4 class="card-title">{{pokemon.name | uppercase}}</h4>
+                            <img class="card-img-top" src="img/PokeBall.png" alt="Pokeball">
+                            <a href="#pokemon-info" class="btn btn-primary" ng-click="pokedexCtrl.getPokemonInfo($index+1)">Open Pokeball</a>
                         </div>
                     </div>
                 </div>
-
-                <div class="text-left col-md-5 col-md-offset-1" id="pokemon-info">
-                    <div class="row text-center">
-                        <img ng-src='{{pokedexCtrl.pokemonImgUrl}}'>
-                    </div>
-                    <h3>Pokemon Info</h3>
-                    <div id="pokemon-info-shown">
-                        <p><strong>Name:</strong> {{pokedexCtrl.pokemonInfo.name | uppercase}}</p>
-                        <p><strong>Weight:</strong> {{pokedexCtrl.pokemonInfo.weight}}</p>
-                        <p><strong>Height:</strong>  {{pokedexCtrl.pokemonInfo.height}}</p>
-                    </div>
-                    <h3>Stats</h3>
-                    <div id="pokemon-stats-shown">
-                        <div class="row">
-                            <p ng-repeat="stat in pokedexCtrl.pokemonInfo.stats" class="col-md-4"><strong>{{stat.stat.name | uppercase}}:</strong> {{stat.base_stat | uppercase}} </p>
-                        </div>
-                    </div>
-                    <h3>Abilities</h3>
-                    <div id="pokemon-abilities-shown">
-                        <div class="row">
-                            <p ng-repeat="ability in pokedexCtrl.pokemonInfo.abilities" class="col-md-4"><strong>{{ability.ability.name | uppercase}}</strong></p>
-                        </div>
-                    </div>
-                    <h3>Moves</h3>
-                    <div id="pokemon-moves-shown">
-                        <div class="row">
-                            <p ng-repeat="move in pokedexCtrl.pokemonInfo.moves" class="col-md-4"><strong>{{move.move.name | uppercase}}</strong></p>
-                        </div>
-                    </div>
-                </div>   
-
             </div>
-            
+
+            <div class="text-left col-md-5 col-md-offset-1" id="pokemon-info" ng-show="pokedexCtrl.appear">
+                <h3 class="text-center">Pokemon Info</h3>
+                <div class="row text-center">
+                    <img ng-src='{{pokedexCtrl.pokemonImgUrl}}'>
+                </div>
+                <div id="pokemon-info-shown">
+                    <p><strong>Name:</strong> {{pokedexCtrl.pokemonInfo.name | uppercase}}</p>
+                    <p><strong>Weight:</strong> {{pokedexCtrl.pokemonInfo.weight}}</p>
+                    <p><strong>Height:</strong> {{pokedexCtrl.pokemonInfo.height}}</p>
+                </div>
+                <h3>Stats</h3>
+                <div id="pokemon-stats-shown">
+                    <div class="row">
+                        <p ng-repeat="stat in pokedexCtrl.pokemonInfo.stats" class="col-md-4"><strong>{{stat.stat.name | uppercase}}:</strong> {{stat.base_stat | uppercase}} </p>
+                    </div>
+                </div>
+                <h3>Abilities</h3>
+                <div id="pokemon-abilities-shown">
+                    <div class="row">
+                        <p ng-repeat="ability in pokedexCtrl.pokemonInfo.abilities" class="col-md-4"><strong>{{ability.ability.name | uppercase}}</strong></p>
+                    </div>
+                </div>
+                <h3>Moves</h3>
+                <div id="pokemon-moves-shown">
+                    <div class="row">
+                        <p ng-repeat="move in pokedexCtrl.pokemonInfo.moves" class="col-md-4"><strong>{{move.move.name | uppercase}}</strong></p>
+                    </div>
+                </div>
+            </div>
+
         </div>
-        
-    
+
+    </div>
+
+
 
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
@@ -75,5 +75,6 @@
     <script src="app/core/pokedex.factory.js" type="text/javascript"></script>
     <script src="app/controller/pokedex.controller.js" type="text/javascript"></script>
 
-    </body>
+</body>
+
 </html>

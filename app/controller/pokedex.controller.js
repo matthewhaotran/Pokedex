@@ -1,4 +1,4 @@
-(function(){
+(function () {
     'use strict';
 
     angular
@@ -10,27 +10,28 @@
     function PokedexController(PokedexFactory) {
         var vm = this;
         vm.getPokemonInfo = getPokemonInfo;
+        vm.appear = false;
 
         ///////////////////////////////////////////////////////
 
-        function getPokemonInfo (id) { //This function gets info for one pokeon
+        function getPokemonInfo(id) { //This function gets info for one pokemon
             PokedexFactory
                 .getPokeman(id)
-                .then(function(pokemonInfo){
+                .then(function (pokemonInfo) {
                     vm.pokemonInfo = pokemonInfo;
                     vm.pokemonImgUrl = pokemonInfo.sprites.front_shiny;
-                    console.log(vm.pokemonImgUrl);
+                    vm.appear = true;
                 });
         }
 
         PokedexFactory //This function gets info for all the pokemon to populate the list
             .getPokemon()
-            .then(function(pokemon) {
+            .then(function (pokemon) {
                 vm.pokemon = pokemon;
             });
 
         activate();
 
-        function activate() { }
+        function activate() {}
     }
 })();

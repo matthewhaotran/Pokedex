@@ -1,4 +1,4 @@
-(function(){
+(function () {
     'use strict';
 
     angular
@@ -17,7 +17,7 @@
 
         //////////////////////////////////////////
 
-        function getPokemon() { 
+        function getPokemon() { //HTTP request to get all pokemon info
             return $http
                 .get('http://pokemon.origincodeacademy.com/api/v2/pokemon')
                 .then(function (response) {
@@ -25,7 +25,7 @@
                 });
         }
 
-        function getPokeman(id) {
+        function getPokeman(id) { //HTTP request to get individual pokemon info
             return $http
                 .get('http://pokemon.origincodeacademy.com/api/v2/pokemon/' + id + '/')
                 .then(function (response) {
