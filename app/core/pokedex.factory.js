@@ -25,9 +25,9 @@
                 });
         }
 
-        function getPokeman(id) { //HTTP request to get individual pokemon info
+        function getPokeman(url) { //HTTP request to get individual pokemon info
             return $http
-                .get('http://pokemon.origincodeacademy.com/api/v2/pokemon/' + id + '/')
+                .get(url)
                 .then(function (response) {
                     return response.data;
                 });

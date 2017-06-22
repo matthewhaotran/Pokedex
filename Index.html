@@ -26,7 +26,7 @@
                         <div class="card-block">
                             <h4 class="card-title">{{pokemon.name | uppercase}}</h4>
                             <img class="card-img-top" src="img/PokeBall.png" alt="Pokeball">
-                            <a href="#pokemon-info" class="btn btn-primary" ng-click="pokedexCtrl.getPokemonInfo($index+1)">Open Pokeball</a>
+                            <a href="#pokemon-info" class="btn btn-primary" ng-click="pokedexCtrl.getPokemonInfo(pokemon.url)">Open Pokeball</a>
                         </div>
                     </div>
                 </div>

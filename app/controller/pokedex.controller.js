@@ -14,9 +14,9 @@
 
         ///////////////////////////////////////////////////////
 
-        function getPokemonInfo(id) { //This function gets info for one pokemon
+        function getPokemonInfo(url) { //This function gets info for one pokemon
             PokedexFactory
-                .getPokeman(id)
+                .getPokeman(url)
                 .then(function (pokemonInfo) {
                     vm.pokemonInfo = pokemonInfo;
                     vm.pokemonImgUrl = pokemonInfo.sprites.front_shiny;
