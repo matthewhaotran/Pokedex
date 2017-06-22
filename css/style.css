@@ -1,0 +1,20 @@
+.jumbotron {
+    margin-top: 3em;
+    background-color: #F3EBF6;
+}
+
+body {
+    background-color: #AEE6EC;
+}
+
+img {
+    width: 50%;
+}
+
+#pokemon-info {
+    background-color: #F3EBF6;
+}
+
+#pokemon-balls {
+    background-color: #F3EBF6;
+}
